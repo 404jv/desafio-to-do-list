@@ -1,3 +1,8 @@
+## Pontos de melhorias
+- Melhorar a segurança dos Webhooks no N8N com chaves de API. E o mesmo para as rotas no Next.js.
+- Permiter que o usuário envie mais de uma mensagem por vez no Chat do Site. 
+- Quando criado uma task via WhatsApp ou Chat no Site, atualizar a lista de TO-DO sem precisar de reload na tela.
+
 # To-Do List - Desafio
 
 Aplicação de lista de tarefas desenvolvida com Next.js 15, TypeScript, TailwindCSS e Supabase.

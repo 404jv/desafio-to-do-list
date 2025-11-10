@@ -201,7 +201,7 @@ export default function ChatAssistant({ userEmail, onTaskCreated }: ChatAssistan
       {/* Floating Button */}
       <button
         onClick={handleToggle}
-        className={`chat-button fixed bottom-6 right-6 w-14 h-14 bg-[#CA3040] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#CA3040] focus:ring-offset-2 ${
+        className={`chat-button fixed bottom-6 right-6 w-14 h-14 bg-white text-[#CA3040] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50 flex items-center justify-center hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#CA3040] focus:ring-offset-2 ${
           isOpen ? 'rotate-45' : ''
         }`}
         aria-label={isOpen ? 'Close chat' : 'Open chat assistant'}
