@@ -1,118 +1,133 @@
-## Pontos de melhorias
-- Melhorar a segurança dos Webhooks no N8N com chaves de API. E o mesmo para as rotas no Next.js.
-- Permiter que o usuário envie mais de uma mensagem por vez no Chat do Site. 
-- Quando criado uma task via WhatsApp ou Chat no Site, atualizar a lista de TO-DO sem precisar de reload na tela.
+## Tools
+- Next.js
+- Cursor
+- Supabase
+- Vercel
+- N8N (Chat in web-site and WhatsApp Bot)
 
-# To-Do List - Desafio
+## Improvement Points
 
-Aplicação de lista de tarefas desenvolvida com Next.js 15, TypeScript, TailwindCSS e Supabase.
+* Improve the security of **N8N Webhooks** using **API keys** and **IP whitelisting**, and apply the same principle to **Next.js routes**.
+* Allow users to send **multiple messages at once** in the site chat.
+* When a task is created via **WhatsApp** or **Website Chat**, update the **To-Do list** in real time without reloading the page.
+* When the **AI Agent** doesn’t understand a task, add a validation algorithm to avoid wasting tokens generating a fixed fallback message.
 
-## 🚀 Tecnologias
+# To-Do List - Challenge
 
-- **Next.js 15** (App Router)
-- **TypeScript**
-- **TailwindCSS**
-- **Supabase**
+A task management application built with **Next.js 15**, **TypeScript**, **TailwindCSS**, and **Supabase**.
 
-## 📋 Pré-requisitos
+## 🚀 Technologies
 
-- Node.js 18+ instalado
-- Conta no Supabase
-- Credenciais do projeto Supabase
+* **Next.js 15** (App Router)
+* **TypeScript**
+* **TailwindCSS**
+* **Supabase**
 
-## 🛠️ Instalação
+## 📋 Prerequisites
 
-1. Clone o repositório (ou navegue até a pasta do projeto)
+* Node.js 18+ installed
+* A Supabase account
+* Supabase project credentials
 
-2. Instale as dependências:
+## 🛠️ Installation
+
+1. Clone the repository (or navigate to the project folder)
+
+2. Install dependencies:
+
 ```bash
 npm install
 ```
 
-3. Configure as variáveis de ambiente:
-   - Copie o arquivo `.env.local.example` para `.env.local`
-   - Preencha com suas credenciais do Supabase:
-     - `NEXT_PUBLIC_SUPABASE_URL`: URL do seu projeto Supabase
-     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Chave anônima do Supabase
+3. Configure environment variables:
 
-4. Configure o banco de dados no Supabase:
-   - Execute o script `supabase-schema.sql` para criar a tabela `users`
-   - Execute o script `supabase-tasks-schema.sql` para criar a tabela `tasks`
-   - Ou crie manualmente:
-     - Tabela `users`: `id` (uuid, PK), `name` (text), `email` (text), `created_at` (timestamp)
-     - Tabela `tasks`: `id` (uuid, PK), `user_email` (text), `title` (text), `description` (text), `is_done` (boolean), `created_at` (timestamp)
+   * Copy the `.env.local.example` file to `.env.local`
+   * Fill in your Supabase credentials:
 
-5. Execute o projeto em desenvolvimento:
-```bash
-npm run dev
-```
+     * `NEXT_PUBLIC_SUPABASE_URL`: your Supabase project URL
+     * `NEXT_PUBLIC_SUPABASE_ANON_KEY`: your Supabase anon key
 
-6. Acesse [http://localhost:3000](http://localhost:3000)
+4. Set up the database on Supabase:
 
-## 📁 Estrutura do Projeto
+   * Run the script `supabase-schema.sql` to create the `users` table
+   * Run the script `supabase-tasks-schema.sql` to create the `tasks` table
+   * Or create them manually:
+
+     * **users table:** `id` (uuid, PK), `name` (text), `email` (text), `created_at` (timestamp)
+     * **tasks table:** `id` (uuid, PK), `user_email` (text), `title` (text), `description` (text), `is_done` (boolean), `created_at` (timestamp)
+
+5. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Visit [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
 
 ```
 /app
- ├─ /dashboard/page.tsx    # Página do dashboard
- ├─ page.tsx               # Página inicial (login)
- ├─ layout.tsx            # Layout principal
- └─ globals.css           # Estilos globais
+ ├─ /dashboard/page.tsx    # Dashboard page
+ ├─ page.tsx               # Login page
+ ├─ layout.tsx             # Main layout
+ └─ globals.css            # Global styles
 
 /components
- ├─ LoginForm.tsx         # Formulário de login
- ├─ Button.tsx            # Componente de botão
- ├─ Input.tsx             # Componente de input
- ├─ TaskList.tsx          # Lista de tarefas
- ├─ TaskItem.tsx         # Item individual de tarefa
- └─ AddTaskForm.tsx       # Formulário para adicionar tarefa
+ ├─ LoginForm.tsx          # Login form
+ ├─ Button.tsx             # Button component
+ ├─ Input.tsx              # Input component
+ ├─ TaskList.tsx           # Task list
+ ├─ TaskItem.tsx           # Individual task item
+ └─ AddTaskForm.tsx        # Add task form
 
 /lib
- └─ supabaseClient.ts     # Cliente do Supabase
+ └─ supabaseClient.ts      # Supabase client
 
 /utils
- └─ localStorage.ts       # Utilitários do localStorage
+ └─ localStorage.ts        # Local storage utilities
 ```
 
 ## 🎨 Design
 
-- **Cor primária:** `#CA3040` (vermelho)
-- **Cor secundária:** `#FFFFFF` (branco)
-- **Fonte:** Inter
+* **Primary color:** `#CA3040` (red)
+* **Secondary color:** `#FFFFFF` (white)
+* **Font:** Inter
 
-## 🔐 Funcionalidades
+## 🔐 Features
 
-### Versão Inicial
+### Initial Version
 
-- ✅ Login com nome e email (sem senha)
-- ✅ Armazenamento de usuários no Supabase
-- ✅ Sessão no localStorage
-- ✅ Proteção de rotas
-- ✅ Dashboard com sistema de tarefas
+* ✅ Login using name and email (no password)
+* ✅ User storage in Supabase
+* ✅ Session management via localStorage
+* ✅ Route protection
+* ✅ Dashboard with task system
 
-### Sistema de Tarefas
+### Task System
 
-- ✅ Listar tarefas do usuário logado
-- ✅ Adicionar novas tarefas (título e descrição opcional)
-- ✅ Marcar tarefas como concluídas/não concluídas
-- ✅ Interface responsiva com cards
-- ✅ Atualização dinâmica da lista
+* ✅ List tasks for the logged-in user
+* ✅ Add new tasks (title and optional description)
+* ✅ Mark tasks as done/undone
+* ✅ Responsive card-based interface
+* ✅ Dynamic list updates
 
-## 📝 Próximos Passos
+## 📝 Next Steps
 
-Este projeto pode ser expandido com:
-- Edição de tarefas
-- Exclusão de tarefas
-- Filtros (todas, pendentes, concluídas)
-- Ordenação por data/prioridade
-- Categorias/tags
-- Busca de tarefas
+Possible improvements and extensions:
 
-## 🚢 Deploy
+* Task editing
+* Task deletion
+* Filters (all, pending, completed)
+* Sorting by date or priority
+* Categories / tags
+* Task search
 
-O projeto está configurado para deploy na Vercel:
+## 🚢 Deployment
 
-1. Faça push do código para um repositório Git
-2. Conecte o repositório na Vercel
-3. Configure as variáveis de ambiente na Vercel
-4. Faça o deploy!
+The project is ready for deployment on **Vercel**:
 
+1. Push your code to a Git repository
+2. Connect the repository to Vercel
+3. Configure environment variables in Vercel
+4. Deploy!
